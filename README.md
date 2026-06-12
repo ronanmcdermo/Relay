@@ -1,8 +1,8 @@
-# Orbit 🛸
+# Relay 🛸
 
 > A Slack bot that lets you interact with GitHub in natural language, powered by Claude and MCP.
 
-Ask Orbit things like:
+Ask Relay things like:
 - *"Summarize the open PRs on my-org/my-repo"*
 - *"Create an issue for the login bug — users can't reset their password"*
 - *"What merged this week in my-repo?"*
@@ -48,8 +48,8 @@ The MCP server exposes GitHub as a set of tools. Claude decides which tools to c
 
 **1. Clone the repo**
 ```bash
-git clone https://github.com/your-username/orbit.git
-cd orbit
+git clone https://github.com/ronanmcdermo/relay.git
+cd relay
 ```
 
 **2. Install dependencies**
@@ -101,7 +101,7 @@ Create a [fine-grained personal access token](https://github.com/settings/person
 - **Pull requests**: Read
 - **Contents**: Read (for commit history)
 
-Scope it to only the repositories you want Orbit to access.
+Scope it to only the repositories you want Relay to access.
 
 ---
 
