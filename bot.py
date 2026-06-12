@@ -94,13 +94,14 @@ async def run_agent(user_message: str) -> str:
     messages = [{"role": "user", "content": user_message}]
 
     while True:
-        response = client.messages.create(
+        response = await asyncio.to_thread(
+            client.messages.create,
             model="claude-sonnet-4-6",
             max_tokens=2048,
             system=SYSTEM_PROMPT,
             tools=tools,
             messages=messages,
-        )
+     )
 
         # If Claude is done, return the final text response
         if response.stop_reason == "end_turn":
@@ -115,7 +116,7 @@ async def run_agent(user_message: str) -> str:
             tool_results = []
             for block in response.content:
                 if block.type == "tool_use":
-                    result = call_mcp_tool(block.name, block.input)
+                    result = await asyncio.to_thread(call_mcp_tool, block.name, block.input)
                     tool_results.append({
                         "type": "tool_result",
                         "tool_use_id": block.id,
