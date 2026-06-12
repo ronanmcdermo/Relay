@@ -2,5 +2,5 @@
 builder = "nixpacks"
 
 [deploy]
-startCommand = "python slack_bot/bot.py"
+startCommand = "python bot.py"
 restartPolicyType = "always"
